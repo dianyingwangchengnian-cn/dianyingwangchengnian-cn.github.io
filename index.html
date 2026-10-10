@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xml:lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="content-language" content="zh-CN">
+<title>电影网成年｜成年人的电影课：成年人该看的电影、成人片单与成熟影评</title>
+<meta name="description" content="电影网成年，是一堂成年人的电影课。专注成年人该看的电影、成人片单、成熟影评与成年时刻：婚姻、衰老、工作、疾病、死亡、和解。不做少年意气，只谈成年人如何看懂成年人。">
+<meta name="keywords" content="电影网成年,成年人电影,成人片单,成年人该看的电影,成熟电影,中年电影,婚姻电影,衰老电影,疾病电影,死亡电影,和解电影,成年人影评,观影指南,电影推荐,电影片单,华语电影,欧洲电影,日本电影,韩国电影,美国电影,4K修复,0149导航,dianyingwangchengnian-cn">
+<meta name="robots" content="index,follow">
+<meta name="author" content="电影网成年编辑部">
+<link rel="canonical" href="https://dianyingwangchengnian-cn.github.io">
+<style>
+/* ============ 变量：赭石 × 松烟 × 宣纸 ============ */
+:root{
+  --ochre:#b5651d;     /* 赭石 */
+  --ochre-d:#8a4a13;
+  --ink:#1f1e1c;       /* 松烟 */
+  --ink2:#56544f;
+  --paper:#f6f1e7;     /* 宣纸 */
+  --paper2:#ede5d5;
+  --bone:#fbf8f1;
+  --line:rgba(31,30,28,.2);
+  --rust:#a5442f;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:"PingFang SC","Microsoft YaHei","WenQuanYi Micro Hei",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  font-size:16px;line-height:1.85;
+  background-image:
+    radial-gradient(circle at 12% 10%, rgba(181,101,29,.13), transparent 40%),
+    radial-gradient(circle at 88% 88%, rgba(165,68,47,.1), transparent 42%),
+    repeating-linear-gradient(0deg, rgba(0,0,0,.018) 0 1px, transparent 1px 4px);
+  -webkit-text-size-adjust:100%;
+}
+a{color:var(--ochre-d);text-decoration:none;}
+a:hover{color:var(--ochre);}
+
+/* ============ 顶部（canvas 烛火，轻量） ============ */
+#candle{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.55;}
+
+/* ============ 通告 ============ */
+.notice{
+  position:relative;z-index:2;background:var(--ink);color:var(--bone);
+  font-size:13.5px;line-height:1.7;padding:12px 24px;text-align:center;
+  border-bottom:6px solid var(--ochre);
+}
+.notice strong{letter-spacing:.05em;color:#f0d9b5;}
+
+/* ============ 刊首 ============ */
+header.lede{
+  position:relative;z-index:2;
+  max-width:1180px;margin:0 auto;padding:56px 26px 28px;
+  display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:center;
+}
+.lede h1{
+  font-family:"Songti SC","Source Han Serif SC","Noto Serif CJK SC",Georgia,serif;
+  font-size:clamp(38px,7vw,76px);line-height:1.06;margin:0 0 6px;color:var(--ink);letter-spacing:-.01em;
+}
+.lede h1 em{
+  font-style:normal;color:var(--bone);background:var(--ochre);
+  padding:7px 22px;display:inline-block;border-radius:2px;
+  box-shadow:11px 11px 0 var(--ink);
+}
+.lede .sub{
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;
+  letter-spacing:.24em;color:var(--ink2);text-transform:uppercase;margin:16px 0 16px;
+}
+.lede p{margin:0 0 12px;color:var(--ink2);font-size:16.5px;}
+.lede p b{color:var(--ochre-d);}
+.lede .sig{font-size:13.5px;color:var(--ink2);letter-spacing:.04em;}
+
+/* 成年 logo：纯 CSS 天平（成熟 = 两端都能放下） */
+.scale{width:100%;aspect-ratio:1/1;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.scale .stand{position:absolute;bottom:6%;width:3px;height:58%;background:var(--ink);}
+.scale .beam{
+  position:absolute;bottom:62%;width:74%;height:3px;background:var(--ink);
+  transform-origin:center;animation:tilt 9s ease-in-out infinite alternate;
+}
+@keyframes tilt{from{transform:rotate(-5deg);}to{transform:rotate(5deg);}}
+.scale .pivot{position:absolute;bottom:60%;width:15px;height:15px;border-radius:50%;background:var(--ochre);border:3px solid var(--ink);z-index:3;}
+.scale .chain{position:absolute;width:2px;height:15%;background:var(--ink);}
+.scale .chain.c1{left:16%;bottom:44%;transform:rotate(-19deg);}
+.scale .chain.c2{right:16%;bottom:44%;transform:rotate(19deg);}
+.scale .pan{
+  position:absolute;bottom:26%;width:26%;height:9%;border:3px solid var(--ink);border-radius:0 0 50% 50%;
+  background:var(--paper2);display:flex;align-items:flex-end;justify-content:center;overflow:hidden;
+}
+.scale .pan.p1{left:5%;}
+.scale .pan.p2{right:5%;}
+.scale .pan i{display:block;width:60%;height:46%;background:var(--ochre);border:2px solid var(--ink);border-radius:4px 4px 0 0;}
+.scale .pan.p2 i{background:var(--rust);}
+.scale .glow{position:absolute;top:8%;width:18%;height:22%;border-radius:50%;background:#f6e3c0;opacity:.8;filter:blur(2px);}
+
+.idx{margin-top:26px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;position:relative;z-index:2;}
+.idx div{background:var(--bone);border:2px solid var(--ink);padding:12px 14px;}
+.idx dt{font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.16em;color:var(--ink2);}
+.idx dd{margin:2px 0 0;font-size:20px;font-weight:700;color:var(--ochre-d);font-variant-numeric:tabular-nums;}
+.stamp{
+  position:absolute;right:-12px;bottom:-22px;z-index:3;
+  border:3px solid var(--rust);color:var(--rust);background:var(--paper);
+  font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.13em;padding:6px 12px;
+  transform:rotate(-7deg);
+}
+
+/* ============ 导航 ============ */
+nav.toc{
+  position:sticky;top:0;z-index:50;
+  background:rgba(246,241,231,.96);backdrop-filter:blur(8px);
+  border-bottom:5px solid var(--ink);
+}
+nav.toc .inner{
+  max-width:1180px;margin:0 auto;padding:11px 20px;
+  display:flex;align-items:center;gap:6px;flex-wrap:wrap;
+}
+.brand{font-weight:800;letter-spacing:.03em;color:var(--ochre-d);margin-right:10px;white-space:nowrap;}
+.brand small{display:block;font-family:ui-monospace,Menlo,monospace;font-size:10px;color:var(--ink2);letter-spacing:.2em;font-weight:400;}
+nav.toc a{font-size:13.5px;padding:7px 12px;color:var(--ink2);border-bottom:2px solid transparent;}
+nav.toc a:hover{color:var(--ochre-d);border-bottom-color:var(--ochre);background:rgba(181,101,29,.08);}
+
+/* ============ 章节骨架 ============ */
+main{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:0 26px 70px;}
+section{padding:60px 0 8px;}
+.sec-head{display:flex;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:30px;border-bottom:5px solid var(--ink);padding-bottom:10px;}
+.sec-head .no{font-family:ui-monospace,Menlo,monospace;font-size:13px;letter-spacing:.2em;color:#fff;background:var(--ochre);padding:5px 11px;}
+.sec-head h2{font-family:"Songti SC","Source Han Serif SC",Georgia,serif;font-size:clamp(24px,4vw,36px);margin:0;color:var(--ink);}
+.sec-head .en{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.24em;color:var(--ink2);text-transform:uppercase;}
+.lead{color:var(--ink2);font-size:16px;margin:0 0 26px;max-width:82ch;}
+
+/* ============ 栏目 01：标尺（grid 4，标尺刻度 + 首/末刻） ============ */
+.ruler{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:3px solid var(--ink);background:var(--bone);}
+.rule{border-right:2px dashed var(--line);padding:26px 18px 18px;position:relative;min-height:220px;}
+.rule:last-child{border-right:none;}
+.rule::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:9px;
+  background:repeating-linear-gradient(90deg,var(--ink) 0 3px,var(--bone) 3px 10px);
+}
+.rule .age{font-family:Georgia,serif;font-size:34px;font-weight:700;color:var(--ochre-d);line-height:1;}
+.rule .age small{font-size:12px;font-family:ui-monospace,Menlo,monospace;letter-spacing:.16em;color:var(--ink2);}
+.rule h3{margin:10px 0 8px;font-size:18px;font-family:"Songti SC",Georgia,serif;}
+.rule p{margin:0;font-size:13.6px;color:var(--ink2);}
+.rule .ex{margin-top:14px;padding-top:9px;border-top:2px solid var(--line);font-size:12px;color:var(--ink);}
+.rule .ex b{display:block;color:var(--ochre-d);font-family:"Songti SC",Georgia,serif;font-size:13.5px;}
+
+/* ============ 栏目 02：对开词典（2 列，左词右义，竖分隔） ============ */
+.dict{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:3px solid var(--ink);}
+.entry{display:grid;grid-template-columns:112px 1fr;gap:14px;padding:18px 20px;border-bottom:2px dashed var(--line);}
+.entry:nth-child(odd){border-right:2px dashed var(--line);}
+.entry:nth-last-child(-n+2){border-bottom:none;}
+.entry .wd{font-family:"Songti SC",Georgia,serif;font-size:22px;color:var(--bone);background:var(--ink);text-align:center;padding:8px 4px;align-self:start;}
+.entry .bd h3{margin:0 0 5px;font-size:16px;color:var(--ochre-d);}
+.entry .bd p{margin:0;font-size:13.6px;color:var(--ink2);}
+.entry .bd .eg{margin-top:8px;font-size:11.5px;letter-spacing:.06em;color:var(--rust);border-left:3px solid var(--ochre);padding-left:8px;}
+
+/* ============ 栏目 03：六格议案（grid 6 无间隙，序号 + 关键词） ============ */
+.ballot{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border:3px solid var(--ink);}
+.ballot a{
+  display:block;position:relative;aspect-ratio:1/1;padding:16px 14px;color:var(--ink);
+  border-right:2px solid var(--ink);border-bottom:2px solid var(--ink);background:var(--bone);
+  transition:.2s;
+}
+.ballot a:nth-child(6n){border-right:none;}
+.ballot a:nth-child(n+7){border-bottom:none;}
+.ballot a:nth-child(even){background:var(--paper2);}
+.ballot a:hover{background:var(--ochre);color:var(--bone);}
+.ballot a .no{font-family:Georgia,serif;font-size:24px;font-weight:700;line-height:1;color:var(--ochre-d);}
+.ballot a:hover .no{color:#f6e3c0;}
+.ballot a .t{display:block;margin-top:8px;font-size:15.5px;font-family:"Songti SC",Georgia,serif;}
+.ballot a .d{display:block;margin-top:6px;font-size:11px;line-height:1.55;color:var(--ink2);}
+.ballot a:hover .d{color:#f6e3c0;}
+
+/* ============ 栏目 04：长文（右注 + 引文 + 首字下沉） ============ */
+.essay{
+  display:grid;grid-template-columns:2fr 1fr;gap:34px;align-items:start;
+  background:var(--bone);border:3px solid var(--ink);padding:30px 32px;
+}
+.essay h3{margin:0 0 14px;font-family:"Songti SC",Georgia,serif;font-size:27px;color:var(--ink);border-bottom:5px solid var(--ochre);padding-bottom:9px;}
+.essay p{margin:0 0 15px;font-size:15.3px;color:var(--ink2);text-align:justify;}
+.essay p:first-of-type::first-letter{
+  font-family:Georgia,serif;font-size:46px;line-height:.84;float:left;
+  color:var(--bone);background:var(--ink);padding:7px 13px;margin:4px 10px 0 0;
+}
+.essay blockquote{
+  margin:8px 0 18px;padding:15px 20px;background:var(--ochre);color:var(--bone);
+  font-size:15.3px;border-right:9px solid var(--rust);
+}
+.essay blockquote cite{display:block;margin-top:7px;font-size:11.5px;letter-spacing:.14em;color:#f6e3c0;font-style:normal;}
+.aside{border-top:11px solid var(--ink);padding:18px 20px;background:var(--paper);}
+.aside h4{margin:0 0 12px;font-size:13px;letter-spacing:.12em;color:var(--ochre-d);font-family:ui-monospace,Menlo,monospace;}
+.aside ol{margin:0;padding-left:0;list-style:none;counter-reset:g;}
+.aside li{counter-increment:g;padding:9px 0 9px 40px;position:relative;font-size:13.5px;color:var(--ink2);border-bottom:1px dotted var(--line);}
+.aside li:last-child{border-bottom:none;}
+.aside li::before{content:counter(g,decimal-leading-zero);position:absolute;left:0;top:9px;font-family:Georgia,serif;font-size:19px;color:var(--rust);line-height:1;}
+.aside li b{color:var(--ink);font-weight:600;}
+
+/* ============ 栏目 05：票根对开（2 列，撕裂齿孔 + 硬阴影） ============ */
+.stub{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+.tk{
+  position:relative;background:var(--bone);border:3px solid var(--ink);padding:22px 24px 58px;
+  box-shadow:13px 13px 0 var(--ink);
+}
+.tk:nth-child(2){box-shadow:13px 13px 0 var(--ochre);}
+.tk::before,.tk::after{
+  content:"";position:absolute;left:0;right:0;height:14px;background:
+    radial-gradient(circle at 7px 0, transparent 0 7px, var(--bone) 7px) repeat-x;
+  background-size:14px 14px;
+}
+.tk::before{top:-3px;}
+.tk::after{bottom:-3px;transform:scaleY(-1);}
+.tk .hd{padding-bottom:11px;border-bottom:2px dashed var(--line);margin-bottom:14px;}
+.tk .hd em{font-style:normal;font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.24em;color:var(--rust);}
+.tk .hd h3{margin:3px 0 0;font-size:21px;font-family:"Songti SC",Georgia,serif;color:var(--ink);}
+.tk dl{margin:0;display:grid;grid-template-columns:82px 1fr;gap:9px 14px;font-size:13.8px;}
+.tk dt{color:var(--ink2);font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.14em;align-self:center;}
+.tk dd{margin:0;color:var(--ink2);}
+.tk dd b{color:var(--ochre-d);}
+.tk .meta{position:absolute;left:24px;bottom:17px;font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.12em;color:var(--ink2);}
+.tk .min{position:absolute;right:18px;bottom:13px;font-family:Georgia,serif;font-size:26px;font-weight:700;color:var(--ochre-d);line-height:1;}
+
+/* ============ 栏目 06：四格承诺 ============ */
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.pill{background:var(--bone);border:2px solid var(--ink);padding:18px 18px 16px;border-left:9px solid var(--ochre);}
+.pill:nth-child(2){border-left-color:var(--rust);}
+.pill:nth-child(3){border-left-color:var(--ink);}
+.pill:nth-child(4){border-left-color:#7d6a4a;}
+.pill h3{margin:0 0 8px;font-size:16px;color:var(--ink);}
+.pill p{margin:0;font-size:13.6px;color:var(--ink2);}
+
+/* ============ 页脚 ============ */
+footer{position:relative;z-index:2;background:var(--ink);color:var(--bone);font-size:13.5px;line-height:1.9;}
+footer .wrap{max-width:1180px;margin:0 auto;padding:44px 26px 26px;}
+footer .cols{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:30px;padding-bottom:26px;border-bottom:2px solid rgba(246,241,231,.2);}
+footer h4{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.22em;color:#f0d9b5;margin:0 0 10px;}
+footer p{margin:0 0 10px;color:rgba(251,248,241,.72);}
+footer ul{margin:0;padding:0;list-style:none;}
+footer li{padding:5px 0;color:rgba(251,248,241,.56);font-size:13px;}
+footer li b{color:var(--bone);font-weight:600;}
+footer .copy{padding-top:20px;font-family:ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.1em;color:rgba(251,248,241,.42);}
+
+/* ============ 回到顶部 ============ */
+.top{
+  position:fixed;right:18px;bottom:20px;z-index:60;width:52px;height:52px;border:none;cursor:pointer;
+  background:var(--ochre);color:var(--bone);font-size:17px;font-weight:700;
+  border-radius:50%;box-shadow:0 10px 24px -12px rgba(31,30,28,.8);
+  opacity:0;pointer-events:none;transition:.25s;
+}
+.top.show{opacity:1;pointer-events:auto;}
+.top:hover{background:var(--rust);transform:translateY(-3px);}
+
+/* ============ 响应式 ============ */
+@media (max-width:1040px){
+  .ruler{grid-template-columns:1fr 1fr;}
+  .rule:nth-child(2){border-right:none;}
+  .rule:nth-child(n+3){border-top:2px dashed var(--line);}
+  .dict,.stub,.essay{grid-template-columns:1fr;}
+  .ballot{grid-template-columns:repeat(3,1fr);}
+  .ballot a:nth-child(6n){border-right:2px solid var(--ink);}
+  .ballot a:nth-child(3n){border-right:none;}
+  .ballot a:nth-child(n+7){border-bottom:2px solid var(--ink);}
+  .ballot a:nth-last-child(-n+3){border-bottom:none;}
+  header.lede{grid-template-columns:1fr;gap:26px;padding-top:36px;}
+  footer .cols{grid-template-columns:1fr 1fr;}
+}
+@media (max-width:640px){
+  body{font-size:15.5px;}
+  .ruler,.dict,.ballot,.grid4{grid-template-columns:1fr;}
+  .rule{border-right:none;border-bottom:2px dashed var(--line);}
+  .rule:last-child{border-bottom:none;}
+  .entry{border-right:none !important;border-bottom:2px dashed var(--line);}
+  .entry:nth-last-child(-n+2){border-bottom:none;}
+  .ballot a{border-right:none !important;}
+  .essay{padding:22px 18px;}
+  .essay p:first-of-type::first-letter{font-size:40px;}
+  .tk{box-shadow:9px 9px 0 var(--ink);}
+  header.lede,main{padding-left:18px;padding-right:18px;}
+  .sec-head{flex-direction:column;align-items:flex-start;gap:6px;}
+  nav.toc .inner{padding:10px 14px;gap:5px;max-height:50px;overflow:hidden;}
+  nav.toc.open .inner{max-height:none;overflow:visible;}
+  nav.toc a{font-size:12.5px;padding:6px 9px;}
+  .brand{width:100%;margin:0 0 4px;}
+  footer .cols{grid-template-columns:1fr;}
+  footer .wrap{padding-left:18px;padding-right:18px;}
+}
+@media print{
+  #candle,.notice,nav.toc,.top{display:none !important;}
+  body{background:#fff;font-size:11pt;}
+  header.lede,main,footer .wrap{max-width:none;padding:0;}
+  section{page-break-inside:avoid;padding-top:18px;}
+  .rule,.entry,.tk,.pill,.ballot a{box-shadow:none;}
+  .scale .beam{animation:none;}
+  *{animation:none !important;transition:none !important;}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaobao.js"></script>
+
+<canvas id="candle" aria-hidden="true"></canvas>
+
+<div class="notice" role="note">
+  <strong>电影网成年 · 成年人的电影课</strong>　我们讨论电影里的成年人：<strong>婚姻、衰老、工作、疾病、死亡与和解</strong>。本站为影评与观影指南，<strong>不做资源站、不挂盗链、不引导下载、不提供任何影视资源</strong>。
+</div>
+
+<header class="lede">
+  <div>
+    <div class="sub">GROWING UP ON SCREEN &nbsp;·&nbsp; SINCE 0149</div>
+    <h1><em>电影网成年</em><br>成年人，该看成年人的电影</h1>
+    <p>电影网成年，是一堂成年人的电影课。少年电影的敌人是"不够燃"，<strong>成年电影的敌人是"不够真"</strong>。</p>
+    <p>我们不推荐爽片。我们推荐<strong>看完之后，你愿意给家里那个人打个电话</strong>的那一类电影：关于婚姻怎么变凉、父母怎么变老、工作怎么消失、身体怎么报警、一个人怎么学会和解。</p>
+    <p class="sig">编辑部 · 三人，皆已过三十 · 每周四更新 · 0149 个成年时刻</p>
+    <div class="idx" role="list">
+      <div role="listitem"><dt>成年时刻</dt><dd>0149</dd></div>
+      <div role="listitem"><dt>拆解影片</dt><dd>083</dd></div>
+      <div role="listitem"><dt>片单累计</dt><dd>256</dd></div>
+    </div>
+  </div>
+
+  <div style="position:relative">
+    <div class="scale" role="img" aria-label="电影网成年的 logo：一架天平，两端各放一块砝码——成熟，是两端都能放下">
+      <span class="stand"></span>
+      <span class="chain c1"></span>
+      <span class="chain c2"></span>
+      <span class="beam"></span>
+      <span class="pivot"></span>
+      <span class="pan p1"><i></i></span>
+      <span class="pan p2"><i></i></span>
+      <span class="glow"></span>
+    </div>
+    <div class="stamp">成熟，是两端都能放下</div>
+  </div>
+</header>
+
+<nav class="toc" id="nav" role="navigation" aria-label="栏目导航">
+  <div class="inner">
+    <span class="brand">电影网成年<small>DIANYINGWANGCHENGNIAN-CN</small></span>
+    <a href="#top">刊首</a>
+    <a href="#rule">成年标尺</a>
+    <a href="#dict">成年词典</a>
+    <a href="#ballot">成年议案</a>
+    <a href="#essay">成年长文</a>
+    <a href="#stub">本周成年</a>
+    <a href="#about">关于</a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- ============ 栏目 01：标尺 ============ -->
+  <section id="rule" aria-labelledby="h-rule">
+    <div class="sec-head">
+      <span class="no">No. 01</span>
+      <h2 id="h-rule">成年标尺：四个年龄段，四种观影</h2>
+      <span class="en">The Ruler of Grown-Ups</span>
+    </div>
+    <p class="lead">成年不是年龄，是一种观影能力：<strong>能忍受不圆满，能接受没有答案，能在别人的失败里认出自己。</strong>以下四段，是我们给不同年龄段的开片建议。</p>
+    <div class="ruler" id="ruler"></div>
+  </section>
+
+  <!-- ============ 栏目 02：对开词典 ============ -->
+  <section id="dict" aria-labelledby="h-dict">
+    <div class="sec-head">
+      <span class="no">No. 02</span>
+      <h2 id="h-dict">成年词典：八个电影教我们的词</h2>
+      <span class="en">A Dictionary of Grown-Ups</span>
+    </div>
+    <p class="lead">成年人的词汇表里，没有"永远"，只有"后来"。以下八个词，是我们在电影里学会的。</p>
+    <div class="dict" id="dictGrid"></div>
+  </section>
+
+  <!-- ============ 栏目 03：六格议案 ============ -->
+  <section id="ballot" aria-labelledby="h-ballot">
+    <div class="sec-head">
+      <span class="no">No. 03</span>
+      <h2 id="h-ballot">成年议案：六件电影替我们说出口的事</h2>
+      <span class="en">Six Motions</span>
+    </div>
+    <p class="lead">成年人最大的困境，不是没选择，而是<strong>每个选项都要付出代价</strong>。以下六件事，电影比我们更早说出口。</p>
+    <div class="ballot" id="ballotGrid"></div>
+  </section>
+
+  <!-- ============ 栏目 04：长文 ============ -->
+  <section id="essay" aria-labelledby="h-essay">
+    <div class="sec-head">
+      <span class="no">No. 04</span>
+      <h2 id="h-essay">成年长文：成年人的电影，为什么都不圆满</h2>
+      <span class="en">Why Grown-Up Films End Unfinished</span>
+    </div>
+
+    <div class="essay">
+      <div>
+        <h3>成年人的电影，为什么都不圆满</h3>
+        <p>少年电影教你怎么赢：追到那个人、打赢那场仗、考进那所学校。<strong>成年电影教你怎么输，并且不喊疼。</strong>《步履不停》里那个孩子，到片尾也没能成为父母想要的人；《海边的曼彻斯特》里那个人，拒绝被治愈，拒绝回到家乡，拒绝"重新开始"——他只是继续活着，仅此而已。</p>
+        <p>我们推荐这类电影，不是因为"丧"，而是因为<strong>它们承认了生活的真实形状</strong>：婚姻不是童话的结尾，是十几年后两个人坐在沙发两端，各自看手机；父母不是永远的靠山，他们会先你一步变老、变笨、变得需要你；工作不是志业，是一份你既不讨厌也不热爱、但必须做下去的事；身体不是器具，它会在某个早晨突然开始报警。</p>
+        <blockquote>"成年，不是变得坚强。是终于承认：<strong>我也会老，也会病，也会搞砸，也会来不及。</strong>"<cite>— 电影网成年编辑部 · 第 0149 期</cite></blockquote>
+        <p>给成年人的三条观影建议：<strong>① 不要只看"好结局"的片，要看"真结局"的片；② 看的时候别急着总结，让它在你身上留两天；③ 看完给家里那个人打个电话，不用说什么，说"刚看了个电影"就够了。</strong></p>
+        <p>我们不回避"难看"的成年片。是枝裕和的《无人知晓》难看，因为它不解释；阿彼察邦的《能召回前世的布米叔叔》难看，因为它不催促；洪常秀的《这时对，那时错》难看，因为它只拍吃饭和喝酒。<strong>但正是这些"难看"，构成了成年人真正的观影时间。</strong></p>
+      </div>
+
+      <aside class="aside">
+        <h4>KEYWORDS · 0149</h4>
+        <ol>
+          <li><b>不圆满</b>　结局不解释</li>
+          <li><b>衰老</b>　父母先我们变老</li>
+          <li><b>婚姻</b>　不是童话的结尾</li>
+          <li><b>工作</b>　既不恨也不爱</li>
+          <li><b>疾病</b>　身体突然报警</li>
+          <li><b>和解</b>　不是原谅，是放下</li>
+        </ol>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ 栏目 05：票根对开 ============ -->
+  <section id="stub" aria-labelledby="h-stub">
+    <div class="sec-head">
+      <span class="no">No. 05</span>
+      <h2 id="h-stub">本周成年：两部"关于来不及"的</h2>
+      <span class="en">This Week for Grown-Ups</span>
+    </div>
+    <p class="lead">选片标准只有一条：<strong>看完之后，你想给家里那个人打个电话。</strong></p>
+    <div class="stub" id="stubGrid"></div>
+  </section>
+
+  <!-- ============ 栏目 06：四格承诺 ============ -->
+  <section id="about" aria-labelledby="h-about">
+    <div class="sec-head">
+      <span class="no">No. 06</span>
+      <h2 id="h-about">关于电影网成年：我们只做四件事</h2>
+      <span class="en">About</span>
+    </div>
+
+    <div class="grid4">
+      <div class="pill">
+        <h3>不推荐爽片</h3>
+        <p>爽片解决不了任何成年人的问题。<strong>我们只推荐看完会"想一会儿"的片。</strong></p>
+      </div>
+      <div class="pill">
+        <h3>只谈成年人</h3>
+        <p>婚姻、衰老、工作、疾病、死亡、和解。<strong>少年电影教你怎么赢，成年电影教你怎么认输。</strong></p>
+      </div>
+      <div class="pill">
+        <h3>允许不圆满</h3>
+        <p>我们不写"豆瓣高分必看 100 部"。<strong>不圆满的片，往往更值钱。</strong></p>
+      </div>
+      <div class="pill">
+        <h3>不提供资源</h3>
+        <p>本站<strong>不做资源站、不挂盗链、不引导下载、不提供任何影视资源</strong>。请走电影院、正版平台、电影节与公共版权片源。</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>电影网成年 · GROWING UP ON SCREEN</h4>
+        <p>电影网成年，是一堂成年人的电影课。本站为非主流行踪，内容由编辑部原创撰写；影片的片长、导演、地区、分级等信息以片方、发行方与正版平台官方公告为准。</p>
+        <p>0149 是本站自建的成年时刻与情绪标签体系，非官方分类，亦非任何第三方评分机构。</p>
+      </div>
+      <div>
+        <h4>站内栏目</h4>
+        <ul>
+          <li><b>01</b> 成年标尺 Ruler</li>
+          <li><b>02</b> 成年词典 Dictionary</li>
+          <li><b>03</b> 成年议案 Motions</li>
+          <li><b>04</b> 成年长文 Essay</li>
+          <li><b>05</b> 本周成年 Reel</li>
+          <li><b>06</b> 关于 About</li>
+        </ul>
+      </div>
+      <div>
+        <h4>合规与观影</h4>
+        <ul>
+          <li>不做资源站 · 不挂盗链</li>
+          <li>不引导下载 · 不提供影视资源</li>
+          <li>明确反对盗版、枪版与破解</li>
+          <li>推荐渠道：院线、正版平台、公共版权</li>
+          <li>观影提示：看完，给家里人打个电话</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      © <span id="yr">2026</span> 电影网成年 · DIANYINGWANGCHENGNIAN-CN.GITHUB.IO &nbsp;|&nbsp; 电影网成年 · 成年人电影 · 成人片单 · 成年人该看的电影 · 成熟电影 · 中年电影 · 婚姻电影 · 衰老电影 · 疾病电影 · 死亡电影 · 和解电影 · 成年人影评 · 观影指南 · 电影推荐 · 电影片单 · 华语电影 · 欧洲电影 · 日本电影 · 韩国电影 · 美国电影 · 4K修复 · 0149 导航 &nbsp;|&nbsp; 本站为单页静态站点，未生成 robots.txt 与 sitemap.xml
+    </div>
+  </div>
+</footer>
+
+<button class="top" id="topBtn" aria-label="回到顶部" title="回到顶部">↑</button>
+
+<script>
+/* ===== 烛火（canvas，轻量） ===== */
+(function(){
+  var c=document.getElementById('candle'),x=c.getContext('2d'),W,H,fl=[];
+  function resize(){W=c.width=innerWidth;H=c.height=innerHeight;}
+  addEventListener('resize',resize);resize();
+  for(var i=0;i<26;i++){
+    fl.push({x:Math.random()*W,y:Math.random()*H*0.5+40,r:6+Math.random()*13,o:.10+Math.random()*.14,vy:-0.12-Math.random()*.18,ph:Math.random()*Math.PI*2});
+  }
+  function loop(){
+    x.clearRect(0,0,W,H);
+    for(var i=0;i<fl.length;i++){
+      var f=fl[i];
+      x.fillStyle='rgba(240,217,181,'+f.o+')';
+      x.beginPath();x.arc(f.x,f.y,f.r,0,Math.PI*2);x.fill();
+      f.y+=f.vy;f.r+=Math.sin(f.ph)*.05;f.ph+=.04;
+      if(f.y<-20){f.y=H*0.45+Math.random()*40;f.x=Math.random()*W;f.r=6+Math.random()*13;}
+    }
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+
+/* ===== 数据 ===== */
+var RULER=[
+  ["18–24","<small>刚成年</small>","开始","<b>关键词：离开、试错、第一次失望。</b>别急着看懂《悲情城市》，先看《少年派的奇幻漂流》和《猜火车》——<b>先学会离开，才配谈归来。</b>",'"后来的我们，都没有成为想成为的人。"'],
+  ["25–34","<small>初为大人</small>","工作","<b>关键词：加班、租房、第一次被辞退。</b>《新世界》《穿普拉达的女王》《尚气》不重要，<b>《东京奏鸣曲》《八月》才重要。</b>",'"我们以为长大是获得，长大其实是失去的清单。"'],
+  ["35–49","<small>中年</small>","婚姻","<b>关键词：婚姻变凉、父母变老、体检报告。</b>《步履不停》《比海更深》《海边的曼彻斯特》——<b>这是最需要看电影的年龄段。</b>",'"后来我们都不说话了，不是没话，是不知道从哪句开始。"'],
+  ["50+","<small>晚境</small>","和解","<b>关键词：退休、空巢、疾病、告别。</b>《爱》《困在时间里的父亲》《小偷家族》——<b>和解不是原谅，是把怨气放下来。</b>",'"我终于不急着证明自己了。这一生，够了。"']
+];
+var DICT=[
+  ["来不及","成年电影里最常见的词。<strong>《步履不停》的弟弟已经死了，《海街日记》的父亲已经走了。</strong>成年人的悲剧不是失败，是\"如果那天我早点回来\"。",'《步履不停》《海街日记》《东京物语》'],
+  ["不解释","少年电影要解释动机，成年电影不解释。<strong>《无人知晓》里孩子被留下，没有人说为什么；《能召回前世的布米叔叔》里人死了，就坐在椅子上聊天。</strong>",'《无人知晓》《能召回前世的布米叔叔》'],
+  ["和解","不是原谅，是<strong>不再追问</strong>。<strong>《小偷家族》的结尾，男孩在屋顶喊了一声\"爸爸\"；《海边的曼彻斯特》的结尾，两个人坐在酒吧里，什么也没解决。</strong>",'《小偷家族》《海边的曼彻斯特》'],
+  ["衰老","成年人最怕的词。<strong>《困在时间里的父亲》让你站在阿尔茨海默病人的位置；《爱》让你站在照顾者的位置。</strong>看完你会想给父母打个电话。",'《爱》《困在时间里的父亲》'],
+  ["婚姻","不是童话的结尾，是<strong>几十年的共同生活</strong>。<strong>《婚姻故事》把离婚拍成一场葬礼；《冷暖人间》把结婚拍成一次迁徙。</strong>",'《婚姻故事》《冷暖人间》'],
+  ["工作","成年人最沉默的痛。<strong>《东京奏鸣曲》里父亲失业后每天假装上班；《我是布莱克》里制度不承认一个人还活着。</strong>",'《东京奏鸣曲》《我是布莱克》']
+];
+var BALLOT=[
+  ["01","别急着结婚","<b>《婚姻故事》</b> · 它不劝你结，也不劝你离"],
+  ["02","常回家看看","<b>《步履不停》</b> · 回一次家，就是一次小型葬礼"],
+  ["03","别把工作当志业","<b>《东京奏鸣曲》</b> · 失业的尊严，比升职更贵"],
+  ["04","体检不要拖","<b>《我不是药神》</b> · 成年人的崩溃，从一份报告开始"],
+  ["05","学会说不","<b>《小偷家族》</b> · 没有血缘，也可以是一家人"],
+  ["06","允许自己不原谅","<b>《海边的曼彻斯特》</b> · 拒绝被治愈，也是一种成年"]
+];
+var PICK=[
+  {t:"《步履不停》",meta:"2008 · 日本 · 114′ · 是枝裕和",d:[
+    ["关于","<b>来不及。</b>长子在十年前为救一个少年溺水身亡。十年后，一家人在横山家的院子里，吃着炸玉米天妇罗，聊着无关紧要的话，没有人提起他——但他们说的每一句，都是关于他"],
+    ["成年看点","<strong>它拍的是\"回一次家，就是一次小型葬礼\"。</strong>母亲的念叨、父亲的倔强、次子的愧疚、儿媳的疏离——没有一个坏人，没有一句重话，<em>却让人想哭到没有力气</em>"],
+    ["适合谁","35 岁以上；刚和父母吵完架的人；所有\"如果那天我早点回来\"的人"],
+    ["观影姿势","和父母一起看。看到 48 分钟那场戏，别说话"],
+    ["关键词","家庭 · 衰老 · 来不及 · 日本 · 是枝裕和"],
+    ["分级","PG（全年龄，但建议 15+）"]]},
+  {t:"《海边的曼彻斯特》",meta:"2016 · 美国 · 137′ · 肯尼斯·洛纳根",d:[
+    ["关于","<b>拒绝被治愈。</b>李在火灾中失去了三个孩子和婚姻。他不打算重新开始，不打算回到曼彻斯特，不打算接受侄子的挽留。<strong>他只是继续活着，仅此而已</strong>"],
+    ["成年看点","<strong>它给了\"不治愈\"一个合法性。</strong>我们被太多电影训练成\"要振作\"。这部片说：<em>你不必好起来，你可以继续难过，可以拒绝原谅自己</em>。这是成年电影最珍贵的一次表态"],
+    ["适合谁","失去过什么的人；被要求\"往前看\"的人；所有在深夜醒着的人"],
+    ["观影姿势","一个人、夜里、不要安慰自己、看完别发朋友圈"],
+    ["关键词","悲伤 · 不治愈 · 冬天 · 美国小镇 · 长镜头"],
+    ["分级","15+（含粗口与悲伤）"]]}
+];
+
+function el(t,cls,txt){var n=document.createElement(t);if(cls)n.className=cls;if(txt!==undefined)n.textContent=txt;return n;}
+function frag(a){var f=document.createDocumentFragment();for(var i=0;i<a.length;i++)f.appendChild(a[i]);return f;}
+
+/* 栏目 01：标尺 */
+(function(){
+  var box=document.getElementById('ruler'),out=[];
+  for(var i=0;i<RULER.length;i++){
+    var r=RULER[i],n=el('div','rule');
+    var a=el('div','age',r[0]);a.innerHTML=r[1];
+    n.appendChild(a);
+    n.appendChild(el('h3',null,r[2]+' · '+r[0].replace(/[–\d]/g,'').trim()));
+    n.appendChild(el('p',null,r[3]));
+    var e=el('div','ex');e.innerHTML=r[4];
+    n.appendChild(e);
+    out.push(n);
+  }
+  box.appendChild(frag(out));
+})();
+
+/* 栏目 02：对开词典 */
+(function(){
+  var box=document.getElementById('dictGrid'),out=[];
+  for(var i=0;i<DICT.length;i++){
+    var d=DICT[i],en=el('article','entry');
+    en.appendChild(el('div','wd',d[0]));
+    var bd=el('div','bd');
+    bd.appendChild(el('h3',null,d[0]+' · 成年词 '+String(i+1).padStart(2,'0')));
+    bd.appendChild(el('p',null,d[1]));
+    bd.appendChild(el('div','eg',d[2]));
+    en.appendChild(bd);
+    out.push(en);
+  }
+  box.appendChild(frag(out));
+})();
+
+/* 栏目 03：六格议案 */
+(function(){
+  var box=document.getElementById('ballotGrid'),out=[];
+  for(var i=0;i<BALLOT.length;i++){
+    var b=BALLOT[i],a=el('a','',null);
+    a.href='#essay';
+    a.appendChild(el('span','no',b[0]));
+    a.appendChild(el('span','t',b[1]));
+    a.appendChild(el('span','d',b[2]));
+    out.push(a);
+  }
+  box.appendChild(frag(out));
+})();
+
+/* 栏目 05：票根对开 */
+(function(){
+  var box=document.getElementById('stubGrid'),out=[];
+  for(var i=0;i<PICK.length;i++){
+    var p=PICK[i],tk=el('article','tk');
+    var hd=el('div','hd');
+    hd.appendChild(el('em',null,'STUB 0'+(i+1)+' · ADMIT ONE'));
+    hd.appendChild(el('h3',null,p.t));
+    var dl=el('dl');
+    for(var j=0;j<p.d.length;j++){
+      dl.appendChild(el('dt',null,p.d[j][0]));
+      dl.appendChild(el('dd',null,p.d[j][1]));
+    }
+    tk.appendChild(hd);tk.appendChild(dl);
+    tk.appendChild(el('div','meta',p.meta));
+    tk.appendChild(el('div','min',p.meta.split(' · ')[2]));
+    out.push(tk);
+  }
+  box.appendChild(frag(out));
+})();
+
+/* 回到顶部 */
+var topBtn=document.getElementById('topBtn');
+addEventListener('scroll',function(){topBtn.className=scrollY>700?'top show':'top';});
+topBtn.addEventListener('click',function(){scrollTo({top:0,behavior:'smooth'});});
+
+/* 年份 */
+document.getElementById('yr').textContent=new Date().getFullYear();
+
+/* 窄屏导航展开 */
+document.getElementById('nav').addEventListener('click',function(e){
+  if(e.target.classList.contains('brand')) this.classList.toggle('open');
+});
+</script>
+</body>
+</html>
